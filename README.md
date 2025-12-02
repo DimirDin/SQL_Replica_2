@@ -41,24 +41,11 @@ shops       (id PK, name, city_id, address, …)
 
 Создаём **отдельные инстансы** для каждой доменной области:
 
-graph TD
-    subgraph "INSTANCE 1 (OLTP-users)"
-        u1[users]
-        u2[user_profile]
-        u3[user_sessions]
-    end
-
-    subgraph "INSTANCE 2 (OLTP-catalog)"
-        c1[books]
-        c2[authors]
-        c3[genres]
-    end
-
-    subgraph "INSTANCE 3 (OLTP-shops)"
-        s1[shops]
-        s2[stocks<br/>(остатки)]
-        s3[employees]
-    end
+| INSTANCE 1 (OLTP-users) | INSTANCE 2 (OLTP-catalog) | INSTANCE 3 (OLTP-shops) |
+|-------------------------|---------------------------|-------------------------|
+| users                   | books                     | shops                   |
+| user_profile            | authors                   | stocks (остатки)        |
+| user_sessions           | genres                    | employees               |
 
 Каждый инстанс работает в режиме **master-1 + 2×slave**.
 
