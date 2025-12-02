@@ -30,10 +30,12 @@
 ## Задание 2. План горизонтального и вертикального шардинга
 
 **Схема БД (упрощённо):**
-users       (id PK, name, email, city_id, …)
-books       (id PK, title, author, genre_id, price, …)
-shops       (id PK, name, city_id, address, …)
 
+| Таблица | Колонки                                            |
+| ------- | -------------------------------------------------- |
+| users   | `id` PK, `name`, `email`, `city_id`, …             |
+| books   | `id` PK, `title`, `author`, `genre_id`, `price`, … |
+| shops   | `id` PK, `name`, `city_id`, `address`, …           |
 
 **Цель:** поддерживать рост на 10× без потери производительности.
 
